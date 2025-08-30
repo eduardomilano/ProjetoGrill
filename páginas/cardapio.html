@@ -6,33 +6,63 @@
   <title>Cardápio - Grill</title>
   <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <style>
+    nav {
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.416);
+    }
+    body {
+      background-color: hsla(0, 0%, 66%, 0.392);
+    }
+    .card {
+      box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.1);
+    }
+    .card-header {
+      background-color: #343a40;
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <nav class="navbar bg-light navbar-light navbar-expand-sm py-3 fixed-top">
-      <div class="container">
-        <a href="../index.html" class="navbar-brand d-flex align-items-center" id="site-title">
-          <h1 class="h3 m-0">Grill</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#painel" aria-controls="painel">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
+          <nav class="navbar navbar-light bg-light navbar-expand-sm py-3 fixed-top sticky-top">
+            <div class="container">
+              <!-- Logo -->
+              <a href="../index.html" class="navbar-brand d-flex align-items-center" id="site-title">
+                <h1 class="h3 mb-0">Grill</h1>
+              </a>
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="painel" aria-labelledby="painelLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="painelLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="list-unstyled">
-          <li><a href="../index.html" class="nav-link">Home</a></li>
-          <li><a href="../cardapio.html" class="nav-link">Cardápio</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
+              <!-- Links (desktop) -->
+              <ul class="navbar-nav ms-auto d-none d-sm-flex">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="páginas/cardapio.html">Cardápio</a>
+                </li>
+              </ul>
+
+              <!-- Botão Offcanvas (mobile) -->
+              <button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#painel" aria-controls="painel">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </nav>
+
+          <!-- Offcanvas -->
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="painel" aria-labelledby="painelLabel" data-bs-backdrop="static">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="painelLabel">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="list-unstyled">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="páginas/cardapio.html" class="nav-link">Cardápio</a></li>
+              </ul>
+            </div>
+          </div>
+
+</header>
 
   <main class="pt-5 mt-5">
     <div class="container py-5">
@@ -225,12 +255,54 @@
             <img src="../imagens/cerveja.jpeg" alt="Cervejas" class="card-img-top">
             <h4 class="card-header">Cervejas</h4>
             <div class="card-body">
-                        <h5>42,00$</h5>
-              <p>Cervejas geladas e refrescantes.</p>
+                        <h5>12,00$</h5>
+                        <h6>Garrafa 600ml</h6>
               <ul>
-                <li>Porção de 800g</li>
+                <li>Skol</li>
+                <li>Heineken</li>
+                <li>Budweiser</li>
+                <li>Corona</li>
+                <li>Sol</li>
               </ul>
               <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+            </div>
+          </div>
+        </div>
+         <div class="col">
+          <div class="card h-100">
+            <img src="../imagens/drinks.jpeg" alt="Cervejas" class="card-img-top">
+            <h4 class="card-header">Drinks</h4>
+            <div class="card-body">
+                        <h5>10,00$</h5>
+                        <h6>Taça de 300ml</h6>
+              <ul>
+                <li>Mojito</li>
+                <li>Caipirinha</li>
+                <li>Piña Colada</li>
+                <li>Sex on the Beach</li>
+                
+              </ul>
+              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+            </div>
+          </div>
+        </div>
+         <div class="col">
+          <div class="card h-100">
+            <img src="../imagens/suco.jpeg" alt="Sucos" class="card-img-top">
+            <h4 class="card-header">Sucos</h4>
+            <div class="card-body">
+                        <h5>8,00$</h5>
+                        <h6>Copo de 350ml</h6>
+              <ul>
+                <li>Laranja</li>
+                <li>Maracujá</li>
+                <li>Manga</li>
+                <li>Abacaxi</li>
+                <li>Morango</li>
+                <li>Limão</li>
+                
+              </ul>
+              <a href="#" class="btn btn-primary btn-sm ">Peça Agora</a>
             </div>
           </div>
         </div>

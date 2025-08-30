@@ -1,104 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grill</title>
-    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grill</title>
+  <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  
+  <style>
+    nav {
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.416);
+    }
+    body {
+      background-color: hsla(0, 0%, 66%, 0.392);
+    }
+    h2, h3, p {
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-          <header class="text-white">
-        <nav class="navbar bg-light navbar-light navbar-expand-sm py-3 fixed-top sticky-top">
+  <header>
+          <nav class="navbar navbar-light bg-light navbar-expand-sm py-3 fixed-top sticky-top">
             <div class="container">
-                <a href="index.html" class="navbar-brand d-flex align-items-center" id="site-title">
-                <h1>Grill</h1>
-                </a>
-                
-                <div>
-                    <button class="btn btn-light"
-                            type="button"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#painel"
-                            aria-controls="painel">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
+              <!-- Logo -->
+              <a href="../index.html" class="navbar-brand d-flex align-items-center" id="site-title">
+                <h1 class="h3 mb-0">Grill</h1>
+              </a>
+
+              <!-- Links (desktop) -->
+              <ul class="navbar-nav ms-auto d-none d-sm-flex">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="páginas/cardapio.html">Cardápio</a>
+                </li>
+              </ul>
+
+              <!-- Botão Offcanvas (mobile) -->
+              <button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#painel" aria-controls="painel">
+                <span class="navbar-toggler-icon"></span>
+              </button>
             </div>
-        </nav>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="painel" aria-labelledby="painelLabel" data-bs-backdrop="static">
+          </nav>
+
+          <!-- Offcanvas -->
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="painel" aria-labelledby="painelLabel" data-bs-backdrop="static">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="painelLabel">Menu</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+              <h5 class="offcanvas-title" id="painelLabel">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
             </div>
             <div class="offcanvas-body">
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li>
-                        <a href="páginas/cardapio.html" class="nav-link">Cardápio</a>
-                    </li>
-                </ul>
+              <ul class="list-unstyled">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="páginas/cardapio.html" class="nav-link">Cardápio</a></li>
+              </ul>
             </div>
-        </div>
-    </header>
-    <main>
-        <section>
-            <div class="container py-5">
-                <h1> <strong>Grill</strong> </h1> <hr>
-                <h2> A Arte do Hambúrguer </h2>
-                <p>
-                    Bem-vindo ao Grill, a hamburgueria onde o sabor é levado a sério.
-                    Aqui, cada hambúrguer é preparado com ingredientes selecionados, pão artesanal e carnes grelhadas no ponto perfeito para despertar todos os sentidos.
-                </p>
-                <h2> Nosso diferencial:</h2>
-                <ul>
-                    <li>Carnes frescas e suculentas</li>
-                    <li>Combinações exclusivas de molhos e acompanhamentos</li>
-                    <li>Ambiente moderno e acolhedor</li>
-                    <li>Delivery rápido e prático</li>
-                </ul>
+          </div>
 
-             Seja para um almoço rápido, um encontro com amigos ou aquela fome da madrugada, o Grill tem o hambúrguer ideal para você.
+</header>
 
-             Venha nos visitar ou peça online e descubra por que o Grill é mais que uma hamburgueria — é uma experiência gastronômica.
-                        </div>
-        <div class="row justify-content-center">
-            <div id="ads" class="carousel slide mx-auto" style="width: 500px; height: 500px;" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#ads" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#ads" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#ads" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="imagens/h1.5.jpeg" class="d-block w-100" alt="Imagem 1 do carrossel">
-                </div>
-                <div class="carousel-item">
-                    <img src="imagens/h2.5.jpeg" class="d-block w-100" alt="Imagem 2 do carrossel">
-                </div>
-                <div class="carousel-item">
-                    <img src="imagens/h3.5.jpeg" class="d-block w-100" alt="Imagem 3 do carrossel">
-                </div>
-            </div>
-            <button class="carousel-control-prev" data-bs-target="#ads" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" ></span>
-            
-            </button>
-            <button class="carousel-control-next" data-bs-target="#ads" data-bs-slide="next">
-                <span class="carousel-control-next-icon" ></span>
-            </button>
-                </section>
-        </div>
-   
-    </main>
+  <!-- Conteúdo -->
+  <main class="container py-5 mt-5">
+    <hr>
+    <h2><em>"Hambúrguer de verdade, feito para você."</em></h2>
+    <hr>
+    <h3>Acesse nosso cardápio no menu!</h3>
+    <hr>
+
+    <!-- Bloco 1 -->
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <img src="imagens/h5.5.jpeg" alt="Hambúrguer artesanal" class="img-fluid rounded">
+      </div>
+      <div class="col-md-8 py-2">
+        <p>
+          Experimente o sabor irresistível dos nossos hambúrgueres feitos com ingredientes selecionados. 
+          Crocância, suculência e muito sabor em cada mordida!
+        </p>
+      </div>
     </div>
-    <footer class="bg-light text-dark text-center py-3">
-        &copy; 2024 Grill. Todos os direitos reservados.
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <hr>
+
+    <!-- Bloco 2 -->
+    <div class="row align-items-center">
+      <div class="col-md-4 order-md-2">
+        <img src="imagens/h6.5.jpeg" alt="Hambúrguer artesanal" class="img-fluid rounded">
+      </div>
+      <div class="col-md-8 order-md-1 py-2">
+        <p>
+          Se a fome apertou, o lugar certo é aqui! Hambúrgueres generosos, combinações criativas e aquele gostinho que vicia no primeiro mordisco.
+        </p>
+      </div>
+    </div>
+
+    <hr>
+    <h3>Sobre</h3>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="bg-light text-dark text-center py-3">
+    &copy; 2024 Grill. Todos os direitos reservados.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -5,315 +5,375 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardápio - Grill</title>
   <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    nav {
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.416);
+    nav { 
+      box-shadow: 2px 2px 10px rgba(0,0,0,.416); 
     }
     body {
-      background-color: hsla(0, 0%, 66%, 0.392);
+       background-color: hsla(0,0%,66%,.392);
     }
     .card {
-      box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.1);
+       box-shadow: 2px 2px 13px rgba(0,0,0,.1);
     }
     .card-header {
-      background-color: #343a40;
-      color: white;
+       background-color: #343a40;
+       color: #fff;
     }
   </style>
 </head>
 <body>
-  <header>
-          <nav class="navbar navbar-light bg-light navbar-expand-sm py-3 fixed-top sticky-top">
-            <div class="container">
-              <!-- Logo -->
-              <a href="../index.html" class="navbar-brand d-flex align-items-center" id="site-title">
-                <h1 class="h3 mb-0">Grill</h1>
-              </a>
+    <header>
+      <nav class="navbar navbar-light bg-light navbar-expand-sm py-3 fixed-top sticky-top">
+        <div class="container">
+          <!-- Logo -->
+          <a href="../index.html" class="navbar-brand d-flex align-items-center" id="site-title">
+            <h1 class="h3 mb-0">Grill</h1>
+          </a>
 
-              <!-- Links (desktop) -->
-              <ul class="navbar-nav ms-auto d-none d-sm-flex">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="páginas/cardapio.html">Cardápio</a>
-                </li>
-              </ul>
+          <!-- Links (desktop) -->
+          <ul class="navbar-nav ms-auto d-none d-sm-flex">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="páginas/cardapio.html">Cardápio</a></li>
+          </ul>
 
-              <!-- Botão Offcanvas (mobile) -->
-              <button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#painel" aria-controls="painel">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-          </nav>
+          <!-- Botões (carrinho + menu em telas pequenas) -->
+          <div class="d-flex align-items-center ms-auto">
+            <!-- Carrinho -->
+            <button class="btn btn-outline-dark position-relative me-2 d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">
+              🛒
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">0</span>
+            </button>
 
-          <!-- Offcanvas -->
-          <div class="offcanvas offcanvas-start" tabindex="-1" id="painel" aria-labelledby="painelLabel" data-bs-backdrop="static">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="painelLabel">Menu</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="list-unstyled">
-                <li><a href="../index.html" class="nav-link">Home</a></li>
-                <li><a href="páginas/cardapio.html" class="nav-link">Cardápio</a></li>
-              </ul>
-            </div>
+            <!-- Botão menu mobile -->
+            <button class="navbar-toggler d-sm-none btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#painel" aria-controls="painel">
+              <span class="navbar-toggler-icon"></span>
+            </button>
           </div>
 
-</header>
+          <!-- Carrinho (desktop) -->
+          <div class="ms-3 d-none d-sm-block">
+            <button class="btn btn-outline-dark position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">
+              🛒
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count-desktop">0</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Offcanvas Mobile -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="painel" aria-labelledby="painelLabel" data-bs-backdrop="static">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="painelLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="list-unstyled">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="páginas/cardapio.html" class="nav-link">Cardápio</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Offcanvas Carrinho -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas" aria-labelledby="cartCanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="cartCanvasLabel">Meu Carrinho</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="list-group mb-3" id="cart-items"></ul>
+          <h5>Total: <span id="cart-total">R$ 0,00</span></h5>
+          <button class="btn btn-success w-100 mt-3">Finalizar Pedido</button>
+        </div>
+      </div>
+    </header>
 
   <main class="pt-5 mt-5">
     <div class="container py-5">
       <h1><strong>Cardápio</strong></h1>
       <hr>
+
+      <!-- ===================== HAMBÚRGUERES ===================== -->
       <h2><strong>Hambúrgueres</strong></h2>
       <p><strong>Todos acompanham a Batata Artesanal Grill</strong></p>
 
       <div class="row row-cols-2 row-cols-md-3 g-5 mt-3">
-  
+
+        <!-- Grill Clássico -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/h1.5.jpeg" alt="Hambúrguer Grill Clássico" class="card-img-top">
+            <img src="../imagens/h2.5.jpeg" alt="Hambúrguer Grill Clássico" class="card-img-top">
             <h4 class="card-header">Grill Clássico</h4>
             <div class="card-body">
-                <h5>35,00$</h5>
+              <h5>R$ 35,00</h5>
               <ul>
-                <li>Pão artesanal</li>
-                <li>Carne bovina grelhada</li>
-                <li>Queijo cheddar</li>
-                <li>Alface fresca</li>
-                <li>Tomate fatiado</li>
-                <li>Molho especial da casa</li>
-                <li>Maionese</li>
+                <li>Pão artesanal</li><li>Carne bovina</li><li>Queijo cheddar</li>
+                <li>Alface fresca</li><li>Tomate fatiado</li><li>Molho Grill</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
 
+        <!-- Grill Bacon -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/h6.5.jpeg" alt="Hambúrguer Smoky Bacon" class="card-img-top">
-            <h4 class="card-header">Smoky Bacon</h4>
+            <img src="../imagens/h6.5.jpeg" alt="Hambúrguer Grill Bacon" class="card-img-top">
+            <h4 class="card-header">Grill Bacon</h4>
             <div class="card-body">
-                <h5>45,00$</h5>
+              <h5>R$ 38,00</h5>
               <ul>
-                <li>Pão artesanal</li>
-                <li>Carne bovina</li>
-                <li>Bacon defumado</li>
-                <li>Queijo cheddar</li>
-                <li>Alface fresca</li>
-                <li>Tomate fatiado</li>
-                <li>Molho barbecue</li>
+                <li>Pão artesanal</li><li>Carne bovina</li><li>Queijo prato</li>
+                <li>Bacon crocante</li><li>Alface</li><li>Molho Barbecue</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
 
+        <!-- Grill Duplo -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/h4.5.jpeg" alt="Hambúrguer Inferno Grill" class="card-img-top">
-            <h4 class="card-header">Inferno Grill</h4>
+            <img src="../imagens/h5.5.jpeg" alt="Hambúrguer Grill Duplo" class="card-img-top">
+            <h4 class="card-header">Grill Duplo</h4>
             <div class="card-body">
-                <h5>40,00$</h5>
+              <h5>R$ 45,00</h5>
               <ul>
-                <li>Pão artesanal</li>
-                <li>Carne bovina</li>
-                <li>Bacon</li>
-                <li>Carne de frango</li>
-                <li>Queijo prato</li>
-                <li>Pimenta negra</li>
+                <li>Pão artesanal</li><li>2 carnes bovinas</li><li>Cheddar duplo</li>
+                <li>Tomate</li><li>Molho Grill</li>
+                <li>Bacon duplo</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
 
+        <!-- Grill Frango -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/h3.5.jpeg" alt="Hambúrguer Chicken Grill" class="card-img-top">
-            <h4 class="card-header">Chicken Grill</h4>
+            <img src="../imagens/h3.5.jpeg" alt="Hambúrguer Grill Frango" class="card-img-top">
+            <h4 class="card-header">Grill Frango</h4>
             <div class="card-body">
-                <h5>35,00$</h5>
+              <h5>R$ 33,00</h5>
               <ul>
-                <li>Pão de batata</li>
-                <li>Frango grelhado</li>
-                <li>Queijo prato</li>
-                <li>Alface fresca</li>
-                <li>Tomate fatiado</li>
-                <li>Molho especial</li>
+                <li>Pão artesanal</li><li>Frango Grelhado</li><li>Muçarela</li>
+                <li>Cheddar</li>
+                <li>Alface e tomate</li><li>Molho de alho</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
 
-    
+        <!-- Grill Veggie -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/h5.5.jpeg" alt="Hambúrguer Cheddar Supreme" class="card-img-top">
-            <h4 class="card-header">Cheddar Supreme</h4>
+            <img src="../imagens/h1.5.jpeg" alt="Hambúrguer Grill Veggie" class="card-img-top">
+            <h4 class="card-header">Grill Veggie</h4>
             <div class="card-body">
-                <h5>42,00$</h5>
+              <h5>R$ 32,00</h5>
               <ul>
-                <li>Pão de batata</li>
-                <li>Carne bovina <strong>2x</strong></li>
-                <li>Queijo cheddar</li>
-                <li>Alface fresca</li>
-                <li>Tomate fatiado</li>
-                <li>Molho especial</li>
+                <li>Pão integral</li><li>Hambúrguer Vegano</li><li>Queijo vegano</li>
+                <li>Alface</li><li>Tomate</li><li>Molho de ervas</li>
+                
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
 
-     
+        <!-- Grill Especial -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/h2.5.jpeg" alt="Hambúrguer Veggie Fresh" class="card-img-top">
-            <h4 class="card-header">Veggie Fresh</h4>
+            <img src="../imagens/h4.5.jpeg" alt="Hambúrguer Grill Especial" class="card-img-top">
+            <h4 class="card-header">Grill Especial</h4>
             <div class="card-body">
-                <h5>35,00$</h5>
+              <h5>R$ 48,00</h5>
               <ul>
-                <li>Pão integral</li>
-                <li>Hambúrguer vegano</li>
-                <li>Queijo vegano</li>
-                <li>Alface fresca</li>
-                <li>Tomate fatiado</li>
-                <li>Molho especial</li>
+                <li>Pão australiano</li><li>Carne angus</li><li>Queijo suíço</li>
+                <li>Cebola caramelizada</li><li>Rúcula</li><li>Molho Dijon</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
- 
+    <!-- ===================== PORÇÕES ===================== -->
     <div class="container py-5">
       <hr>
       <h2><strong>Porções</strong></h2>
+
       <div class="row row-cols-2 row-cols-md-3 g-5 mt-3">
+        <!-- Batata Grill -->
         <div class="col">
           <div class="card h-100">
             <img src="../imagens/batata.jpeg" alt="Porção de Batata Artesanal Grill" class="card-img-top">
             <h4 class="card-header">Batata Grill</h4>
             <div class="card-body">
-                        <h5>35,00$</h5>
+              <h5>R$ 35,00</h5>
               <p>Crocante por fora, macia por dentro e acompanhada de molho especial.</p>
-              <ul>
-                <li>Porção de 500g</li>
-              </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <ul><li>Porção de 500g</li></ul>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
+
+        <!-- Frango Assado -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/frango.jpeg" alt="Porção de Frango Grelhado" class="card-img-top">
+            <img src="../imagens/frango.jpeg" alt="Porção de Frango Assado" class="card-img-top">
             <h4 class="card-header">Frango Assado</h4>
             <div class="card-body">
-                        <h5>42,00$</h5>
-              <p>Crocante por fora, macia por dentro e acompanhada de molho especial.</p>
-              <ul>
-                <li>Porção de 800g</li>
-              </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <h5>R$ 42,00</h5>
+              <p>Suculento e temperado, acompanha molho especial.</p>
+              <ul><li>Porção de 800g</li></ul>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- ===================== BEBIDAS ===================== -->
     <div class="container py-5">
       <hr>
       <h2><strong>Bebidas</strong></h2>
+
       <div class="row row-cols-2 row-cols-md-3 g-5 mt-3">
+        <!-- Refrigerante -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/coca.jpeg" alt="Refrigerante" class="card-img-top">
+            <img src="../imagens/coca.jpeg" alt="Refrigerante lata 350ml" class="card-img-top">
             <h4 class="card-header">Refrigerante</h4>
             <div class="card-body">
-                        <h5>6,00$</h5>
+              <h5>R$ 6,00</h5>
+              <h6>Lata 350ml</h6>
               <ul>
-                <li>Refrigerante de 350ml</li>
-                <li>Coca-cola</li>
-                <li>Coca-cola zero</li>
-                <li>Fanta Uva</li>
-                <li>Fanta Laranja</li>
-                <li>Guaraná</li>
+                <li>Coca-Cola</li><li>Coca-Cola Zero</li><li>Fanta Uva</li>
+                <li>Fanta Laranja</li><li>Guaraná</li><li>Sprite</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
+
+        <!-- Cervejas -->
         <div class="col">
           <div class="card h-100">
-            <img src="../imagens/cerveja.jpeg" alt="Cervejas" class="card-img-top">
+            <img src="../imagens/cerveja.jpeg" alt="Cervejas garrafa 600ml" class="card-img-top">
             <h4 class="card-header">Cervejas</h4>
             <div class="card-body">
-                        <h5>12,00$</h5>
-                        <h6>Garrafa 600ml</h6>
+              <h5>R$ 12,00</h5>
+              <h6>Garrafa 600ml</h6>
               <ul>
-                <li>Skol</li>
-                <li>Heineken</li>
-                <li>Budweiser</li>
-                <li>Corona</li>
-                <li>Sol</li>
+                <li>Skol</li><li>Brahma</li><li>Heineken</li>
+                <li>Budweiser</li><li>Corona</li><li>Sol</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
-         <div class="col">
+
+        <!-- Drinks -->
+        <div class="col">
           <div class="card h-100">
-            <img src="../imagens/drinks.jpeg" alt="Cervejas" class="card-img-top">
+            <img src="../imagens/drinks.jpeg" alt="Drinks taça 300ml" class="card-img-top">
             <h4 class="card-header">Drinks</h4>
             <div class="card-body">
-                        <h5>10,00$</h5>
-                        <h6>Taça de 300ml</h6>
+              <h5>R$ 10,00</h5>
+              <h6>Taça de 300ml</h6>
               <ul>
-                <li>Mojito</li>
-                <li>Caipirinha</li>
-                <li>Piña Colada</li>
-                <li>Sex on the Beach</li>
-                
+                <li>Mojito</li><li>Caipirinha</li><li>Margarita</li>
+                <li>Piña Colada</li><li>Sex on the Beach</li><li>Batidas de frutas</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
-         <div class="col">
+
+        <!-- Sucos -->
+        <div class="col">
           <div class="card h-100">
-            <img src="../imagens/suco.jpeg" alt="Sucos" class="card-img-top">
+            <img src="../imagens/suco.jpeg" alt="Sucos copo 350ml" class="card-img-top">
             <h4 class="card-header">Sucos</h4>
             <div class="card-body">
-                        <h5>8,00$</h5>
-                        <h6>Copo de 350ml</h6>
+              <h5>R$ 8,00</h5>
+              <h6>Copo de 350ml</h6>
               <ul>
-                <li>Laranja</li>
-                <li>Maracujá</li>
-                <li>Manga</li>
-                <li>Abacaxi</li>
-                <li>Morango</li>
-                <li>Limão</li>
-                
+                <li>Laranja</li><li>Maracujá</li><li>Manga</li>
+                <li>Abacaxi</li><li>Morango</li><li>Limão</li>
               </ul>
-              <a href="#" class="btn btn-primary btn-sm ">Peça Agora</a>
+              <a href="#" class="btn btn-primary btn-sm mt-3">Peça Agora</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </main>
 
   <footer class="bg-light text-dark text-center py-3">
     &copy; 2024 Grill. Todos os direitos reservados.
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script do carrinho -->
+  <script>
+    let cart = [];
+
+    const cartCount = document.getElementById("cart-count");
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    function formatMoney(value) {
+      return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `
+          ${item.name} - ${formatMoney(item.price)}
+          <button class="btn btn-sm btn-danger" aria-label="Remover">x</button>
+        `;
+
+        li.querySelector("button").addEventListener("click", () => {
+          cart.splice(index, 1);
+          updateCart();
+        });
+
+        cartItems.appendChild(li);
+      });
+
+      cartCount.textContent = cart.length;
+      cartTotal.textContent = formatMoney(total);
+    }
+
+    // Adiciona ao carrinho ao clicar em "Peça Agora"
+    document.querySelectorAll(".btn-primary").forEach(button => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const card = button.closest(".card");
+        const name = card.querySelector(".card-header").innerText;
+        const priceText = card.querySelector("h5").innerText.replace("R$", "").replace(".", "").replace(",", ".").trim();
+        const price = parseFloat(priceText);
+
+        cart.push({ name, price });
+        updateCart();
+      });
+    });
+  </script>
 </body>
 </html>
